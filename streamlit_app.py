@@ -9,7 +9,7 @@ import plotly.io as pio
 
 st.set_page_config(page_title='Climate Dashboard', page_icon='🌱', layout='wide')
 
-hashed = stauth.Hasher(["demo"]).generate()
+hashed = Hasher(["demo"]).generate()
 authenticator = stauth.Authenticate(credentials, "grower_auth", "abcdef", cookie_expiry_days=30)
 #hashed = Hasher(['demo']).generate()
 credentials = {'usernames': {'demo@client.com': {'name': 'Demo Grower', 'password': hashed[0]}}}
