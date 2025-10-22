@@ -2,6 +2,7 @@ import streamlit as st
 import yaml, os, pandas as pd, json, pathlib
 #from streamlit_authenticator import Authenticate, Hasher
 import streamlit_authenticator as stauth
+from streamlit_authenticator.utilities.hasher import Hasher
 from utils.apps_script_client import AppsScriptClient
 from utils.processing import load_and_concat, clean_and_engineer, compute_kpis, build_plotly_specs, write_artifacts
 import plotly.io as pio
