@@ -1,15 +1,18 @@
 import streamlit as st
 import yaml, os, pandas as pd, json, pathlib
-from streamlit_authenticator import Authenticate, Hasher
+#from streamlit_authenticator import Authenticate, Hasher
+import streamlit_authenticator as stauth
 from utils.apps_script_client import AppsScriptClient
 from utils.processing import load_and_concat, clean_and_engineer, compute_kpis, build_plotly_specs, write_artifacts
 import plotly.io as pio
 
 st.set_page_config(page_title='Climate Dashboard', page_icon='🌱', layout='wide')
 
-hashed = Hasher(['demo']).generate()
+hashed = stauth.Hasher(["demo"]).generate()
+authenticator = stauth.Authenticate(credentials, "grower_auth", "abcdef", cookie_expiry_days=30)
+#hashed = Hasher(['demo']).generate()
 credentials = {'usernames': {'demo@client.com': {'name': 'Demo Grower', 'password': hashed[0]}}}
-authenticator = Authenticate(credentials, 'grower_auth', 'abcdef', cookie_expiry_days=30)
+#authenticator = Authenticate(credentials, 'grower_auth', 'abcdef', cookie_expiry_days=30)
 name, auth_status, username = authenticator.login('sidebar')
 if auth_status is False:
     st.error('Incorrect username or password'); st.stop()
