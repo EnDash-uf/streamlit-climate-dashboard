@@ -1,0 +1,17 @@
+{
+  "users": {
+    "admin": {
+      "name": "Administrator",
+      "password_hash": "$2b$12$GEJx2DCqpjWGdXGZyO8WPun4vIn1G6LItlljK/sIXaphVoDzArecC",
+      "role": "admin",
+      "settings": {
+        "unit_preference": "metric",
+        "ideal_setpoints": {
+          "temperature": 22,
+          "humidity": 55,
+          "vpd": 0.8
+        }
+      }
+    }
+  }
+}
